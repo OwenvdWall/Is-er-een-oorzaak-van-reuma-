@@ -1,4 +1,3 @@
-<img width="4000" height="5000" alt="Volcanoplot" src="https://github.com/user-attachments/assets/4974824b-fd91-4512-869a-d1a17a3975ec" />
 # Is er een oorzaak voor reuma?
 ## Inleiding
 
