@@ -13,7 +13,7 @@ Om dieper inzicht te verkrijgen in de onderliggende mechanismen van reumatoïde 
 Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van Platzer et al. (2019)bestaande uit synoviumbiopten van vier RA-patiënten  en vier gezonde controle. De RA-groep betreft patiënten met een gevestigde diagnose (>12 maanden0 en ACPA-positiviteit, terwijl de controlegroep ACPA-negatief is. De ruwe data zijn beschikbaar via NCBI Sequence Read Archive (SRA) een geïdentificeerd met SRR-accessienummers. Deze dataset maakt een vergelijking mogelijk tussen gezonde en aangedane weefsels gericht op het identificeren van differentieel tot expressie komende genen en betrokken biologische pathways bij RA.
 
 <p align="center">
-  <img width="700" height="700" alt="Image" src="https://github.com/user-attachments/files/29107849/Methode_Reuma.pdf" />
+  <img width="700" height="700" alt="Image" src="[https://github.com/user-attachments/files/29107849/Methode_Reuma.pdf](https://github.com/OwenvdWall/Is-er-een-oorzaak-van-reuma-/issues/2#issue-4695323524)" />
   <br>
 </p>
 <p align="left">
