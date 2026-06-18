@@ -14,7 +14,7 @@ Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van P
 
 
 <p align="center">
-  <img width="700" height="700" alt="Image" src="https://github.com/user-attachments/assets/216eb9aa-0df5-4c44-a2da-0aa02fb44021" />
+  
   <br>
 </p>
 <p align="left">
