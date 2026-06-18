@@ -12,7 +12,15 @@ Om dieper inzicht te verkrijgen in de onderliggende mechanismen van reumatoïde 
 ## Methode
 Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van Platzer et al. (2019)bestaande uit synoviumbiopten van vier RA-patiënten  en vier gezonde controle. De RA-groep betreft patiënten met een gevestigde diagnose (>12 maanden0 en ACPA-positiviteit, terwijl de controlegroep ACPA-negatief is. De ruwe data zijn beschikbaar via NCBI Sequence Read Archive (SRA) een geïdentificeerd met SRR-accessienummers. Deze dataset maakt een vergelijking mogelijk tussen gezonde en aangedane weefsels gericht op het identificeren van differentieel tot expressie komende genen en betrokken biologische pathways bij RA.
 
-<img width="4000" height="5000" alt="image" src="https://github.com/user-attachments/assets/ae97825c-bac5-4813-8d3c-7e5ac29df41c" />
+
+<p align="center">
+  <img width="700" height="700" alt="Image" src="https://github.com/user-attachments/assets/216eb9aa-0df5-4c44-a2da-0aa02fb44021" />
+  <br>
+</p>
+<p align="left">
+  <em><b>Figuur 1. </b>RNA-seq analysepipeline. Overzicht van de bioinformatische workflow voor de verwerking van RNA-seq data, beginnend bij FASTQ-reads en referentiegenoom, gevolgd door read alignment, BAM-verwerking en genkwantificatie. De resulterende count matrix werd gebruikt voor differentiële expressieanalyse met DESeq2. Significant tot expressie komende genen werden vervolgens geanalyseerd via GO- en KEGG-enrichment en gevisualiseerd met Pathview. Gemaakt met Microsoft Visio</em>
+</p>
+
 
 
 
