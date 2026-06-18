@@ -5,12 +5,12 @@ Reumatoïde artritis (RA) is een chronische auto-immuunziekte die wordt gekenmer
 
 RA treft voornamelijk synoviale gewrichten, die bestaan uit een gewrichtskapsel, synoviaal membraan en synoviaal vocht. Klinisch presenteert de aandoening zich meestal symmetrisch, waarbij de ontsteking vaak begint in de kleine gewrichten van handen en voeten en zich vervolgens uitbreidt naar grotere gewrichten (Radu & Bungau, 2021).
 
-Om dieper inzicht te verkrijgen in de onderliggende mechanismen van reumatoïde artritis is in dit project een transcriptomicsanalyse uitgevoerd op basis van RNA-seq-data. Het doel van deze analyse is het identificeren van verschillen in genexpressie tussen gezonde controles en RA-patiënten. Hiervoor is gebruikgemaakt van genexpressiedata uit verschillende studies, die diverse klinische stadia van RA omvatten, waaronder zowel vroege als latere fasen van de ziekte (Platzer et al., 2019). Door vergelijking met gezonde monsters kunnen specifieke genen en biologische pathways worden geïdentificeerd die bijdragen aan de pathogenese van RA.
+Om dieper inzicht te verkrijgen in de onderliggende mechanismen van reumatoïde artritis is in dit project een transcriptomicsanalyse uitgevoerd op basis van RNA-seq-data. Het doel van deze analyse is het identificeren van verschillen in genexpressie tussen gezonde controles en RA-patiënten. Hiervoor is gebruikgemaakt van genexpressiedata uit verschillende studies, die diverse klinische stadia van RA omvatten, waaronder zowel vroege als latere fasen van de ziekte (Platzer et al., 2019). Door vergelijking met gezonde monsters kunnen specifieke genen en biologische pathways worden geïdentificeerd die bijdragen aan de pathogenese van RA. 
 
 
 
 ## Methode
-Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van Platzer et al. (2019)bestaande uit synoviumbiopten van vier RA-patiënten  en vier gezonde controle. De RA-groep betreft patiënten met een gevestigde diagnose (>12 maanden0 en ACPA-positiviteit, terwijl de controlegroep ACPA-negatief is. De ruwe data zijn beschikbaar via NCBI Sequence Read Archive (SRA) een geïdentificeerd met SRR-accessienummers. Deze dataset maakt een vergelijking mogelijk tussen gezonde en aangedane weefsels gericht op het identificeren van differentieel tot expressie komende genen en betrokken biologische pathways bij RA.
+Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van Platzer et al. (2019)bestaande uit synoviumbiopten van vier RA-patiënten  en vier gezonde controle. De RA-groep betreft patiënten met een gevestigde diagnose (>12 maanden0 en ACPA-positiviteit, terwijl de controlegroep ACPA-negatief is. De ruwe data zijn beschikbaar via NCBI Sequence Read Archive (SRA) een geïdentificeerd met SRR-accessienummers. Deze dataset maakt een vergelijking mogelijk tussen gezonde en aangedane weefsels gericht op het identificeren van differentieel tot expressie komende genen en betrokken biologische pathways bij RA. Zie (Figuur 1)
 
 
 <p align="center">
@@ -27,11 +27,19 @@ De analyse werd uitgevoerd in R (versie 4.5.2). BiocManager (1.30.27) werd gebru
 
 ## Resultaten
 
-### Vulcanoplot
+### PCA plot & Volcano plot
+
+in totaal werden er 29.407 genen geanalyseerd. de PCA analyse laat een heldere scheiding zien tussen de gezonde groep. de eerste twee hoofd de eerste twee hoofdcomponenten verklaren namelijk 74% en 11% van alle variatie. Zie (Figuur 2A) uit verder onderzoek bleek dat 4572 genen een significant verschil in expressie hadden (padj <= 0.05 en |log2 fold change| >= 1). De Volcano plot in figuur 2B brengt deze genen in beeld. hierop is te zien dat genen opgereguleerd zijn of juis neergereguleerd zijn.
+
+<p align="center">
+  <img width="342" height="2181" alt="image" src="https://github.com/user-attachments/assets/ae96a182-2b78-478b-8a95-8cc8089f7384" />
+ <br>
+</p>
+<p align="left">
+  <p>
+<em><b>Figuur 2.</b>
 
 
-
-### PCA plot
 
 
 
@@ -42,7 +50,7 @@ De analyse werd uitgevoerd in R (versie 4.5.2). BiocManager (1.30.27) werd gebru
 
 
 
-### PATHVIEW (T-CELL REceptor signaling)
+### PATHVIEW 
 
 
 ## Conclusie 
