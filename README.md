@@ -33,7 +33,8 @@ De analyse werd uitgevoerd in R (versie 4.5.2). BiocManager (1.30.27) werd gebru
 in totaal werden er 29.407 genen geanalyseerd. de PCA analyse laat een heldere scheiding zien tussen de gezonde groep. de eerste twee hoofd de eerste twee hoofdcomponenten verklaren namelijk 74% en 11% van alle variatie. Zie (Figuur 2A) uit verder onderzoek bleek dat 4572 genen een significant verschil in expressie hadden (padj <= 0.05 en |log2 fold change| >= 1). De Volcano plot in figuur 2B brengt deze genen in beeld. hierop is te zien dat genen opgereguleerd zijn of juis neergereguleerd zijn.
 
 <p align="center">
-  <img width="342" height="2181" alt="image" src="https://github.com/user-attachments/assets/ae96a182-2b78-478b-8a95-8cc8089f7384" />
+  <img width="342" height="2181" alt="image" src="<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/808a8a20-2ede-4e1f-8b67-3fe3a18374f6" />
+" />
  <br>
 </p>
 <p align="left">
