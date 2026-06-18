@@ -18,10 +18,9 @@ Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van P
  <br>
 </p>
 <p align="left">
-  <em><b>Figuur 1. </b>RNA-seq analysepipeline. Overzicht van de bioinformatische workflow voor de verwerking van RNA-seq data, beginnend bij FASTQ-reads en referentiegenoom, gevolgd door read alignment, BAM-verwerking en genkwantificatie. De resulterende count matrix werd gebruikt voor differentiële expressieanalyse met DESeq2. Significant tot expressie komende genen werden vervolgens geanalyseerd via GO- en KEGG-enrichment en gevisualiseerd met Pathview. Gemaakt met Microsoft Visio</em>
+  <p>
+<em><b>Figuur 1.</b> RNA-seq-analysepipeline. Overzicht van de bio-informatische workflow die is toegepast voor de analyse van RNA-seq-data van gezonde controles en patiënten met reumatoïde artritis. De workflow start met RNA-seq-data en het humane referentiegenoom, gevolgd door genome indexing, read alignment, BAM-verwerking en het opstellen van een count matrix. Vervolgens werd met behulp van metadata een differentiële genexpressieanalyse uitgevoerd met DESeq2. De resultaten werden gevisualiseerd met een Volcano plot en een PCA-plot. Op basis van de significante differentieel tot expressie komende genen werden een Gene Ontology (GO)-analyse en een KEGG-pathwayanalyse uitgevoerd. De geselecteerde pathway werd ten slotte gevisualiseerd met Pathview. Het stroomschema is gemaakt met Microsoft Visio.</em>
 </p>
-
-
 
 
 
