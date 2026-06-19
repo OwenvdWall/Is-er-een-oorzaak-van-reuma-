@@ -33,9 +33,6 @@ in totaal werden er 29.407 genen geanalyseerd. de PCA analyse laat een heldere s
 
 <p align="center">
   <img <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/62b496dc-1c16-4cca-8416-9414997e5b1d" />
-attachments/assets/1fe016d0-b6e3-4e82-a2b8-bfbf910dbd4c" />
- />
-" />
  <br>
 </p>
 <p align="left">
