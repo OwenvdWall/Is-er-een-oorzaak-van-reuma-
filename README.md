@@ -13,12 +13,11 @@ Om dieper inzicht te verkrijgen in de onderliggende mechanismen van reumatoïde 
 Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van Platzer et al. (2019)bestaande uit synoviumbiopten van vier RA-patiënten  en vier gezonde controle. De RA-groep betreft patiënten met een gevestigde diagnose (>12 maanden0 en ACPA-positiviteit, terwijl de controlegroep ACPA-negatief is. De ruwe data zijn beschikbaar via NCBI Sequence Read Archive (SRA) een geïdentificeerd met SRR-accessienummers. Deze dataset maakt een vergelijking mogelijk tussen gezonde en aangedane weefsels gericht op het identificeren van differentieel tot expressie komende genen en betrokken biologische pathways bij RA. Zie (Figuur 1)
 
 
-<p align="center">
-  <img width="342" height="2181" alt="image" src="https://github.com/user-attachments/assets/1484c261-433c-47e8-aa98-1f17e10517e3" />
- <br>
+<<p align="center">
+  <img src="STROOMSCHEMA/stroomschema.png" width="600" style="image-rendering: -webkit-optimize-contrast;" alt="RNA-seq-analyse stroomschema">
+  <br>
+  <em>Figuur 1. RNA-seq-analyse stroomschema. Workflow voor de verwerking van de RNA-seq-data.</em>
 </p>
-<p align="left">
-  <p>
 <em><b>Figuur 1.</b> RNA-seq-analyse stroomschema. Overzicht van de bio-informatische workflow die is toegepast voor de analyse van RNA-seq-data van gezonde controles en patiënten met reumatoïde artritis. De workflow start met RNA-seq-data en het humane referentiegenoom, gevolgd door genome indexing, read alignment, BAM-verwerking en het opstellen van een count matrix. Vervolgens werd met behulp van metadata een differentiële genexpressieanalyse uitgevoerd met DESeq2. De resultaten werden gevisualiseerd met een Volcano plot en een PCA-plot. Op basis van de significante differentieel tot expressie komende genen werden een Gene Ontology (GO)-analyse en een KEGG-pathwayanalyse uitgevoerd. De geselecteerde pathway werd ten slotte gevisualiseerd met Pathview. Het stroomschema is gemaakt met Microsoft Visio.</em>
 </p>
 
