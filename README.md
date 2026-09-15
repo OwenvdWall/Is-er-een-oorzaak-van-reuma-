@@ -16,8 +16,6 @@ Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van P
 <p align="center">
   <img src="https://github.com/user-attachments/assets/1b22e28e-56ac-415a-a54d-bc6d37b3a9b0" width="450" style="image-rendering: -webkit-optimize-contrast;" alt="RNA-seq-analyse stroomschema">
   <br>
-  <em>Figuur 1. RNA-seq-analyse stroomschema. Workflow toegepast voor de verwerking van de rauwe RNA-seq-data tot aan de pathway-visualisatie.</em>
-</p>
 
 <em><b>Figuur 1.</b> RNA-seq-analyse stroomschema. Overzicht van de bio-informatische workflow die is toegepast voor de analyse van RNA-seq-data van gezonde controles en patiënten met reumatoïde artritis. De workflow start met RNA-seq-data en het humane referentiegenoom, gevolgd door genome indexing, read alignment, BAM-verwerking en het opstellen van een count matrix. Vervolgens werd met behulp van metadata een differentiële genexpressieanalyse uitgevoerd met DESeq2. De resultaten werden gevisualiseerd met een Volcano plot en een PCA-plot. Op basis van de significante differentieel tot expressie komende genen werden een Gene Ontology (GO)-analyse en een KEGG-pathwayanalyse uitgevoerd. De geselecteerde pathway werd ten slotte gevisualiseerd met Pathview. Het stroomschema is gemaakt met Microsoft Visio.</em>
 </p>
