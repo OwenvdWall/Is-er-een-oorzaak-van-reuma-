@@ -44,6 +44,12 @@ in totaal werden er 29.407 genen geanalyseerd. de PCA analyse laat een heldere s
 
 
 ### GO ANALYSE 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1f826903-223a-4b6d-bbe2-d7ae246f3045" width="550" style="image-rendering: -webkit-optimize-contrast;" alt="Gene Ontology Enrichment Analyse">
+  <br>
+  <em>Figuur 3. Gene Ontology Enrichment. Dotplot van de top 10 significante biologische processen (GO), gerangschikt op GeneRatio.</em>
+</p>
+
 
 
 ### KEGG ANALYSE
