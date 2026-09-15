@@ -10,17 +10,37 @@ Om dieper inzicht te verkrijgen in de onderliggende mechanismen van reumatoïde 
 
 
 ## Methode
-Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van Platzer et al. (2019)bestaande uit synoviumbiopten van vier RA-patiënten  en vier gezonde controle. De RA-groep betreft patiënten met een gevestigde diagnose (>12 maanden0 en ACPA-positiviteit, terwijl de controlegroep ACPA-negatief is. De ruwe data zijn beschikbaar via NCBI Sequence Read Archive (SRA) een geïdentificeerd met SRR-accessienummers. Deze dataset maakt een vergelijking mogelijk tussen gezonde en aangedane weefsels gericht op het identificeren van differentieel tot expressie komende genen en betrokken biologische pathways bij RA. Zie (Figuur 1)
+## Methode
 
+### Dataset en Experimentele Opzet
+Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van Platzer et al. (2019), afkomstig uit de NCBI Sequence Read Archive (SRA) [Platzer et al., 2019]. De analyse is gebaseerd op synoviumbiopten van vier RA-patiënten en vier gezonde controles [Platzer et al., 2019]. De specifieke klinische kenmerken van deze samples zijn samengevat in Tabel 1 [Platzer et al., 2019]. De bio-informatische workflow die is toegepast om deze data te verwerken staat schematisch weergegeven in Figuur 1.
+
+##### Tabel 1: Overzicht van de klinische kenmerken van de gebruikte RNA-seq dataset (Platzer et al., 2019).
+
+| Groep | Aantal samples (N) | Diagnose-status | ACPA-status | Bronvermelding / ID |
+| :--- | :--- | :--- | :--- | :--- |
+| **Gezond** | 4 | Geen gewrichtsklachten | Negatief (-) | NCBI SRA (SRR-nummers) |
+| **Reuma (RA)** | 4 | Gevestigde diagnose (>12 mnd) | Positief (+) | NCBI SRA (SRR-nummers) |
+
+<br>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/1b22e28e-56ac-415a-a54d-bc6d37b3a9b0" width="450" style="image-rendering: -webkit-optimize-contrast;" alt="RNA-seq-analyse stroomschema">
+  <img src="https://github.com" width="450" style="image-rendering: -webkit-optimize-contrast;" alt="RNA-seq-analyse stroomschema">
   <br>
-
-<em><b>Figuur 1.</b> RNA-seq-analyse stroomschema. Overzicht van de bio-informatische workflow die is toegepast voor de analyse van RNA-seq-data van gezonde controles en patiënten met reumatoïde artritis. De workflow start met RNA-seq-data en het humane referentiegenoom, gevolgd door genome indexing, read alignment, BAM-verwerking en het opstellen van een count matrix. Vervolgens werd met behulp van metadata een differentiële genexpressieanalyse uitgevoerd met DESeq2. De resultaten werden gevisualiseerd met een Volcano plot en een PCA-plot. Op basis van de significante differentieel tot expressie komende genen werden een Gene Ontology (GO)-analyse en een KEGG-pathwayanalyse uitgevoerd. De geselecteerde pathway werd ten slotte gevisualiseerd met Pathview. Het stroomschema is gemaakt met Microsoft Visio.</em>
+  <em>Figuur 1. RNA-seq-analyse stroomschema. Workflow toegepast voor de verwerking van de rauwe RNA-seq-data tot aan de pathway-visualisatie.</em>
 </p>
 
-De analyse werd uitgevoerd in R (versie 4.5.2). BiocManager (1.30.27) werd gebruikt voor het installeren van Bioconductor-packages. Het referentiegenoom werd geïndexeerd en de RNA-seq-data werd uitgelijnd met Rsubread (2.24.0), waarna de BAM-bestanden werden gesorteerd en geïndexeerd met Rsamtools (2.26.0). Met featureCounts (Rsubread) werd een count matrix opgesteld. De differentiële genexpressieanalyse werd uitgevoerd met DESeq2 (1.50.2). De resultaten werden gevisualiseerd met EnhancedVolcano (1.28.2), ggplot2 (4.0.3) en enrichplot (1.30.5). Voor de Gene Ontology- en KEGG-analyse werd clusterProfiler (4.18.4) gebruikt, in combinatie met org.Hs.eg.db (3.22.0) voor genannotatie. De geselecteerde KEGG-pathway werd gevisualiseerd met pathview (1.50.0). dplyr (1.2.0) werd gebruikt voor het filteren en bewerken van de resultaten.
+### Bio-informatische Analyse en Softwareversies
+De computationele analyse werd uitgevoerd in R (versie 4.5.2) met behulp van Bioconductor-pakketten via BiocManager (versie 1.30.27; Morgan, 2024). Het referentiegenoom werd geïndexeerd en de reads werden uitgelijnd met Rsubread (versie 2.24.0; Liao et al., 2019). BAM-bestanden zijn gesorteerd en geïndexeerd via Rsamtools (versie 2.26.0; Morgan et al., 2024), waarna featureCounts (Liao et al., 2014) is gebruikt voor het genereren van de count matrix. 
+
+De differentiële genexpressie-analyse is uitgevoerd met DESeq2 (versie 1.50.2; Love et al., 2014). Data-manipulatie werd uitgevoerd met dplyr (versie 1.2.0; Wickham et al., 2023). Visualisaties zijn gegenereerd met ggplot2 (versie 4.0.3; Wickham, 2016), EnhancedVolcano (versie 1.28.2; Blighe et al., 2024) en enrichplot (versie 1.30.5; Yu, 2024).
+
+### Selectiecriteria GO- en KEGG-analyse
+Niet alle geanalyseerde genen zijn meegenomen naar de functionele verrijking. Om te garanderen dat de downstream analyses zich uitsluitend richten op genen met een bewezen biologische en statistische impact, zijn de genen strikt geselecteerd op basis van de volgende twee criteria uit de DESeq2-output [Love et al., 2014]:
+1. **Statistische significantie:** Een gecorrigeerde p-waarde (`padj`) van **< 0.05**. Hierbij is de Benjamini-Hochberg correctie toegepast om de False Discovery Rate (FDR) te controleren vanwege het *multiple testing* probleem.
+2. **Biologische relevantie:** Een minimale tweevoudige expressieverandering, gedefinieerd als een absolute log2 fold change (`|log2FoldChange|`) van **> 1**.
+
+De genen die aan beide criteria voldeden, zijn geannoteerd met org.Hs.eg.db (versie 3.22.0; Carlson, 2024) und vervolgens functioneel geanalyseerd met clusterProfiler (versie 4.18.4; Wu et al., 2021). De geselecteerde pathway is gevisualiseerd via pathview (versie 1.50.0; Luo & Brouwer, 2013).
 
 
 ## Resultaten
