@@ -62,10 +62,11 @@ in totaal werden er 29.407 genen geanalyseerd. de PCA analyse laat een heldere s
 
 ### PATHVIEW 
 <p align="center">
-  <img src="HIER_JOUW_LINK_UIT_DE_ISSUE_PLAKKEN" width="650" style="image-rendering: -webkit-optimize-contrast;" alt="Pathview T Cell Receptor Signaling Pathway">
+  <img src="https://github.com/user-attachments/assets/10ec3509-f01f-4929-b23d-6d7bc684da68" width="650" style="image-rendering: -webkit-optimize-contrast;" alt="Pathview T Cell Receptor Signaling Pathway">
   <br>
   <em>Figuur 5. Pathview-visualisatie van de 'T cell receptor signaling pathway' (hsa04660). Rode boxen induceren geüpreguleerde genen in de RA-monsters; groene boxen geven gedownreguleerde genen aan.</em>
 </p>
+
 
 
 
