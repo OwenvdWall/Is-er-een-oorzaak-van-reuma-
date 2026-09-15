@@ -30,7 +30,7 @@ Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van P
 </p>
 
 ### Bio-informatische Analyse en Softwareversies
-De computationele analyse werd uitgevoerd in R (versie 4.5.2) met behulp van Bioconductor-pakketten via BiocManager (versie 1.30.27; Morgan, 2024). Het referentiegenoom werd geïndexeerd en de reads werden uitgelijnd met Rsubread (versie 2.24.0; Liao et al., 2019). BAM-bestanden zijn gesorteerd en geïndexeerd via Rsamtools (versie 2.26.0; Morgan et al., 2024), waarna featureCounts (Liao et al., 2014) is gebruikt voor het genereren van de count matrix. 
+De data-analyse werd uitgevoerd in R (versie 4.5.2) met behulp van Bioconductor-pakketten via BiocManager (versie 1.30.27; Morgan, 2024). Het referentiegenoom werd geïndexeerd en de reads werden uitgelijnd met Rsubread (versie 2.24.0; Liao et al., 2019). BAM-bestanden zijn gesorteerd en geïndexeerd via Rsamtools (versie 2.26.0; Morgan et al., 2024), waarna featureCounts (Liao et al., 2014) is gebruikt voor het genereren van de count matrix. 
 
 De differentiële genexpressie-analyse is uitgevoerd met DESeq2 (versie 1.50.2; Love et al., 2014). Data-manipulatie werd uitgevoerd met dplyr (versie 1.2.0; Wickham et al., 2023). Visualisaties zijn gegenereerd met ggplot2 (versie 4.0.3; Wickham, 2016), EnhancedVolcano (versie 1.28.2; Blighe et al., 2024) en enrichplot (versie 1.30.5; Yu, 2024).
 
