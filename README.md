@@ -10,7 +10,6 @@ Om dieper inzicht te verkrijgen in de onderliggende mechanismen van reumatoïde 
 
 
 ## Methode
-## Methode
 
 ### Dataset en Experimentele Opzet
 Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van Platzer et al. (2019), afkomstig uit de NCBI Sequence Read Archive (SRA) [Platzer et al., 2019]. De analyse is gebaseerd op synoviumbiopten van vier RA-patiënten en vier gezonde controles [Platzer et al., 2019]. De specifieke klinische kenmerken van deze samples zijn samengevat in Tabel 1 [Platzer et al., 2019]. De bio-informatische workflow die is toegepast om deze data te verwerken staat schematisch weergegeven in Figuur 1.
