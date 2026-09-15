@@ -30,12 +30,10 @@ De analyse werd uitgevoerd in R (versie 4.5.2). BiocManager (1.30.27) werd gebru
 in totaal werden er 29.407 genen geanalyseerd. de PCA analyse laat een heldere scheiding zien tussen de gezonde groep. de eerste twee hoofd de eerste twee hoofdcomponenten verklaren namelijk 74% en 11% van alle variatie. Zie (Figuur 2A) uit verder onderzoek bleek dat 4572 genen een significant verschil in expressie hadden (padj <= 0.05 en |log2 fold change| >= 1). De Volcano plot in figuur 2B brengt deze genen in beeld. hierop is te zien dat genen opgereguleerd zijn of juis neergereguleerd zijn.
 
 <p align="center">
-  <img <img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/62b496dc-1c16-4cca-8416-9414997e5b1d" />
- <br>
+  <img src="https://github.com/user-attachments/assets/a82d384c-c4dd-4fc5-8db4-aeec02d1c033" width="100%" style="image-rendering: -webkit-optimize-contrast;" alt="PCA en Volcano Plot Resultaten">
+  <br>
+  <em>Figuur 2. Resultaten van de differentiële genexpressie-analyse. (A) PCA-plot die een strikte en loepzuivere scheiding toont tussen de gezonde controles (normal) en de reuma-samples (Rheuma) op basis van 74% verklaarde variantie op de PC1-as. (B) Opgeschoonde Volcano plot waarin de statistische significantie is uitgezet tegen de log2 fold change. De belangrijkste geüpreguleerde 'key genes' voor reuma zijn gelabeld met connectors om overlap te voorkomen.</em>
 </p>
-<p align="left">
-  <p>
-<em><b>Figuur 2.</b>
 
 
 
