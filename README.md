@@ -24,10 +24,11 @@ Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq dataset van P
 <br>
 
 <p align="center">
-  <img src="https://github.com" width="450" style="image-rendering: -webkit-optimize-contrast;" alt="RNA-seq-analyse stroomschema">
+  <img src="https://github.com" width="100%" style="image-rendering: -webkit-optimize-contrast;" alt="PCA en Volcano Plot Resultaten">
   <br>
-  <em>Figuur 1. RNA-seq-analyse stroomschema. Workflow toegepast voor de verwerking van de rauwe RNA-seq-data tot aan de pathway-visualisatie.</em>
+  <em>Figuur 2. Resultaten van de differentiële genexpressie-analyse. (A) PCA-plot die een strikte en loepzuivere scheiding toont tussen de gezonde controles (normal) en de reuma-samples (Rheuma) op basis van 74% verklaarde variantie op de PC1-as. (B) Opgeschoonde Volcano plot waarin de statistische significantie is uitgezet tegen de log2 fold change. De belangrijkste geüpreguleerde 'key genes' voor reuma zijn gelabeld met connectors om overlap te voorkomen.</em>
 </p>
+
 
 ### Bio-informatische Analyse en Softwareversies
 De computationele analyse werd uitgevoerd in R (versie 4.5.2) met behulp van Bioconductor-pakketten via BiocManager (versie 1.30.27; Morgan, 2024). Het referentiegenoom werd geïndexeerd en de reads werden uitgelijnd met Rsubread (versie 2.24.0; Liao et al., 2019). BAM-bestanden zijn gesorteerd en geïndexeerd via Rsamtools (versie 2.26.0; Morgan et al., 2024), waarna featureCounts (Liao et al., 2014) is gebruikt voor het genereren van de count matrix. 
