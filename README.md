@@ -36,8 +36,8 @@ De differentiële genexpressie-analyse is uitgevoerd met DESeq2 (versie 1.50.2; 
 
 ### Selectiecriteria GO- en KEGG-analyse
 Om te garanderen dat de downstream analyses zich richten op genen met een duidelijke biologische en statistische impact, zijn de genen geselecteerd op basis van de volgende twee criteria uit de DESeq2-output [Love et al., 2014]:
-1. **Statistische significantie:** Een gecorrigeerde p-waarde (`padj`) van **< 0.05**. Hierbij is de Benjamini-Hochberg correctie toegepast om de False Discovery Rate (FDR) te controleren vanwege het *multiple testing* probleem.
-2. **Biologische relevantie:** Een minimale tweevoudige expressieverandering, gedefinieerd als een absolute log2 fold change (`|log2FoldChange|`) van **> 1**.
+1. **Statistische significantie:** Een gecorrigeerde p-waarde  van **< 0.05**. Hierbij is de Benjamini-Hochberg correctie toegepast om de False Discovery Rate (FDR) te controleren vanwege het *multiple testing* probleem.
+2. **Biologische relevantie:** Een minimale tweevoudige expressieverandering, gedefinieerd als een absolute log2 fold change  van **> 1**.
 
 De genen die aan beide criteria voldeden, zijn geannoteerd met org.Hs.eg.db (versie 3.22.0; Carlson, 2024) en vervolgens functioneel geanalyseerd met clusterProfiler (versie 4.18.4; Wu et al., 2021). De geselecteerde pathway is gevisualiseerd via pathview (versie 1.50.0; Luo & Brouwer, 2013).
 
