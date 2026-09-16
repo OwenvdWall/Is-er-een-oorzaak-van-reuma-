@@ -82,9 +82,6 @@ De Pathview-visualisatie (Figuur 5) onthult een breedschalige opregulatie (rode 
   <em>Figuur 5. Pathview-visualisatie van de 'T cell receptor signaling pathway' (hsa04660). Rode boxen induceren geüpreguleerde genen in de RA-monsters; groene boxen geven gedownreguleerde genen aan.</em>
 </p>
 
-De Pathview-visualisatie (Figuur 5) onthult een breedschalige opregulatie (rode boxen) van vrijwel alle kernelementen binnen deze T-celcascade, waaronder de MAP-kinasecascade en NF-κB-intermediairen. Dit wijst op een constante signalering die de ontsteking in stand houdt.
-
-
 ## Conclusie 
 
 De transcriptomicsanalyse bevestigt ingrijpende herprogrammering in het synoviale weefsel bij RA. De PCA-scheiding, immuun-gerelateerde GO/KEGG-verrijking en opregulatie van de T-celreceptorcascade bewijzen in lijn met Radu & Bungau (2021) dat autoreactieve T-cellen de drijvende kracht vormen achter de gewrichtsontsteking. Dit biedt waardevolle mechanistische aanknopingspunten voor gerichte immunotherapieën bij RA-patiënten.
