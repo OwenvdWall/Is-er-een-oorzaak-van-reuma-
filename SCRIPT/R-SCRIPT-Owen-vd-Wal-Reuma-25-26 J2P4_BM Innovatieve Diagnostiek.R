@@ -97,27 +97,17 @@ head(counts)
 #========================
 # WORKDIRECTORY
 #========================
-
 setwd("C:/Users/owenv/OneDrive - NHL Stenden/Project REUMA leerjaar 2 periode 4")
 
-
 #========================
-# COUNT MATRIX INLADEN
+# PACKAGES (Slimme installatie)
 #========================
-
-counts <- read.table("count_matrix_RA.txt",
-                     header = TRUE,
-                     row.names = 1)
-
-#==============================================
-# Check of kolomnamen overeenkomen met samples
-#==============================================
-colnames(counts)
-
-
-#========================
-# PACKAGES
-#========================
+required_packages <- c("DESeq2", "EnhancedVolcano", "clusterProfiler", "org.Hs.eg.db", "enrichplot", "pathview", "dplyr", "ggplot2")
+new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
+if(length(new_packages)) {
+  if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+  BiocManager::install(new_packages)
+}
 
 library(DESeq2)
 library(EnhancedVolcano)
@@ -129,57 +119,64 @@ library(pathview)
 library(ggplot2)
 
 #========================
-# METADATA (VERBETERD)
+# COUNT MATRIX INLADEN
 #========================
+counts <- read.table("count_matrix_RA.txt", header = TRUE, row.names = 1)
+colnames(counts)
 
+#========================
+# METADATA 
+#========================
 treatment <- c("normal", "normal", "normal", "normal",
                "Rheuma", "Rheuma", "Rheuma", "Rheuma")
 
 coldata <- data.frame(treatment = factor(treatment))
-
-# BELANGRIJK: match met count matrix
 rownames(coldata) <- colnames(counts)
-
 
 #========================
 # DESEQ ANALYSE
 #========================
-
-dds <- DESeqDataSetFromMatrix(countData = counts,
-                              colData = coldata,
-                              design = ~ treatment)
-
+dds <- DESeqDataSetFromMatrix(countData = counts, colData = coldata, design = ~ treatment)
 dds <- DESeq(dds)
 
 resultaten <- results(dds, contrast = c("treatment", "Rheuma", "normal"))
-
-# Sorteer op significantie (handig!)
 resultaten <- resultaten[order(resultaten$padj), ]
-
 
 #========================
 # RESULTATEN OPSLAAN
 #========================
-
-write.csv(as.data.frame(resultaten),
-          file = "Reuma_results.csv")
-
+write.csv(as.data.frame(resultaten), file = "Reuma_results.csv")
 
 #========================
 # EXTRA: AANTAL SIGNIFICANTE GENEN
 #========================
-
 upregulated <- sum(resultaten$padj < 0.05 & resultaten$log2FoldChange > 1, na.rm = TRUE)
 downregulated <- sum(resultaten$padj < 0.05 & resultaten$log2FoldChange < -1, na.rm = TRUE)
 
 cat("Upregulated genen:", upregulated, "\n")
 cat("Downregulated genen:", downregulated, "\n")
 
-
 #========================
-# VOLCANO PLOT
+# VOLCANO PLOT (Aangepast voor overzichtelijkheid)
 #========================
 
+#=======================================================================
+# VOLCANO PLOT (Automatisch opslaan in hoge resolutie)
+#=======================================================================
+
+# 1. Definieer de specifieke genen die je gelabeld wilt hebben
+key_genes <- c("SRGN", "PTGFR", "BCL2A1", "DVL2", "ADAMDEC1", "IGHV1-69")
+
+# 2. Open de PNG-writer (overschrijft je oude bestand met de schone versie)
+png(
+  "Volcano_Plot.png",
+  width = 8,
+  height = 8,
+  units = "in",
+  res = 300  # Dwingt de hoge 300 DPI resolutie af
+)
+
+# 3. Teken de plot in de PNG-writer
 EnhancedVolcano(
   resultaten,
   lab = rownames(resultaten),
@@ -188,75 +185,76 @@ EnhancedVolcano(
   title = "Volcano Plot",
   subtitle = "Rheuma versus Normaal",
   pCutoff = 0.05,
-  FCcutoff = 1
+  FCcutoff = 1,
+  selectLab = key_genes, 
+  drawConnectors = TRUE,
+  widthConnectors = 0.5,
+  colConnectors = "black",
+  labSize = 4.0,
+  legendPosition = "right"
+)
+
+# 4. Sluit de writer af
+dev.off()
+
+# 5. Toon de plot ook direct in je RStudio venster
+EnhancedVolcano(
+  resultaten,
+  lab = rownames(resultaten),
+  x = "log2FoldChange",
+  y = "padj",
+  title = "Volcano Plot",
+  subtitle = "Rheuma versus Normaal",
+  pCutoff = 0.05,
+  FCcutoff = 1,
+  selectLab = key_genes, 
+  drawConnectors = TRUE,
+  widthConnectors = 0.5,
+  colConnectors = "black",
+  labSize = 4.0,
+  legendPosition = "right"
 )
 
 # ========================
 # PCA PLOT
 # ========================
-
 vsd <- vst(dds, blind = FALSE)
+pca_plot <- plotPCA(vsd, intgroup = "treatment") + ggtitle("PCA Plot: Rheuma versus Normaal")
 
-png(
-  "PCA_plot_Rheuma_vs_Normaal.png",
-  width = 8,
-  height = 6,
-  units = "in",
-  res = 300
-)
-
-pca_plot <- plotPCA(vsd, intgroup = "treatment") +
-  ggtitle("PCA Plot: Rheuma versus Normaal")
-
+# Toon in RStudio
 print(pca_plot)
 
+# Sla op als PNG
+png("PCA_plot_Rheuma_vs_Normaal.png", width = 8, height = 6, units = "in", res = 300)
+print(pca_plot)
 dev.off()
-
-# Ook tonen in RStudio
-pca_plot
-
 
 #========================
 # SIGNIFICANTE GENEN
 #========================
-
 sig_genes <- resultaten %>%
   as.data.frame() %>%
-  filter(
-    !is.na(padj),
-    padj < 0.05,
-    abs(log2FoldChange) > 1
-  )
+  filter(!is.na(padj), padj < 0.05, abs(log2FoldChange) > 1)
 
-write.csv(
-  sig_genes,
-  "Significante_genen.csv"
-)
+write.csv(sig_genes, "Significante_genen.csv")
 
 gene_list <- rownames(sig_genes)
-
 if(length(gene_list) == 0){
-  stop("Geen significante genen gevonden")
+  stop("Geen significante genen gevonden. Pas eventueel je cutoffs aan.")
 }
 
 #========================
 # ID CONVERSIE (SYMBOL → ENTREZ)
 #========================
-
-gene_df <- bitr(gene_list,
-                fromType = "SYMBOL",
-                toType = "ENTREZID",
-                OrgDb = org.Hs.eg.db)
+gene_df <- bitr(gene_list, fromType = "SYMBOL", toType = "ENTREZID", OrgDb = org.Hs.eg.db)
 
 if(nrow(gene_df) == 0){
-  stop("Geen gene mapping gevonden (check SYMBOLs)")
+  stop("Geen gene mapping gevonden. Controleer of de counts matrix SYMBOLs (gennamen) gebruikt.")
 }
-
 
 # ========================
 # GO ANALYSE
 # ========================
-
 go_results <- enrichGO(
   gene = gene_df$ENTREZID,
   OrgDb = org.Hs.eg.db,
@@ -267,109 +265,53 @@ go_results <- enrichGO(
   readable = TRUE
 )
 
-write.csv(
-  as.data.frame(go_results),
-  "GO_results.csv"
-)
+write.csv(as.data.frame(go_results), "GO_results.csv")
 
-png(
-  "GO_Enrichment.png",
-  width = 10,
-  height = 8,
-  units = "in",
-  res = 300
-)
+# Plot aanmaken
+go_plot <- dotplot(go_results, showCategory = 10, title = "Gene Ontology Enrichment Analyse")
+print(go_plot)
 
-dotplot(
-  go_results,
-  showCategory = 10,
-  title = "Gene Ontology Enrichment Analyse"
-)
-
+png("GO_Enrichment.png", width = 10, height = 8, units = "in", res = 300)
+print(go_plot)
 dev.off()
-
-dotplot(
-  go_results,
-  showCategory = 10,
-  title = "Gene Ontology Enrichment Analyse"
-)
-
 
 # ========================
 # KEGG ANALYSE
 # ========================
-
 kegg_results <- enrichKEGG(
   gene = gene_df$ENTREZID,
   organism = "hsa",
   pvalueCutoff = 0.05
 )
 
-write.csv(
-  as.data.frame(kegg_results),
-  "KEGG_results.csv"
-)
+write.csv(as.data.frame(kegg_results), "KEGG_results.csv")
 
-png(
-  "KEGG_Enrichment.png",
-  width = 10,
-  height = 8,
-  units = "in",
-  res = 300
-)
+kegg_plot <- dotplot(kegg_results, showCategory = 10, title = "KEGG Pathway Enrichment Analyse")
+print(kegg_plot)
 
-dotplot(
-  kegg_results,
-  showCategory = 10,
-  title = "KEGG Pathway Enrichment Analyse"
-)
-
+png("KEGG_Enrichment.png", width = 10, height = 8, units = "in", res = 300)
+print(kegg_plot)
 dev.off()
 
-dotplot(
-  kegg_results,
-  showCategory = 10,
-  title = "KEGG Pathway Enrichment Analyse"
-)
-
 #========================
-# PATHVIEW (HUMAAN)
+# PATHVIEW 
 #========================
+# Zorg dat we alleen genen pakken die succesvol gekoppeld zijn naar Entrez
+rownames(sig_genes) <- rownames(sig_genes) # Voor de zekerheid
 
-gene_vector <- sig_genes$log2FoldChange
-names(gene_vector) <- rownames(sig_genes)
+# Maak een schone vector op basis van de gemapte tabel
+gene_vector <- sig_genes[gene_df$SYMBOL, "log2FoldChange"]
+names(gene_vector) <- gene_df$ENTREZID
 
-mapped <- gene_df[gene_df$SYMBOL %in% names(gene_vector), ]
+# Verwijder eventuele NA's die ontstaan zijn
+gene_vector <- gene_vector[!is.na(names(gene_vector))]
 
-gene_vector <- gene_vector[mapped$SYMBOL]
-names(gene_vector) <- mapped$ENTREZID
-
-pathview(gene.data = gene_vector,
-         pathway.id = "04670",   # leukocyte transendothelial migration
-         species = "hsa")
-
-pathview(gene.data = gene_vector,
-         pathway.id = "04660",
-         species = "hsa")
+# Genereer de Pathview diagrammen (deze worden direct in je working directory opgeslagen als .png)
+pathview(gene.data = gene_vector, pathway.id = "04670", species = "hsa") # Leukocyte transendothelial migration
+pathview(gene.data = gene_vector, pathway.id = "04660", species = "hsa") # T cell receptor signaling pathway
 
 #========================
 # OUTPUT CHECK
 #========================
-
-cat("GO terms:", nrow(as.data.frame(go_results)), "\n")
-cat("KEGG terms:", nrow(as.data.frame(kegg_results)), "\n")
-
-
-#========================
-# PLOTS
-#========================
-dotplot(
-  go_results,
-  showCategory = 10,
-  title = "Gene Ontology Enrichment"
-)
-dotplot(
-  kegg_results,
-  showCategory = 10,
-  title = "KEGG Pathway Enrichment"
-)
+cat("GO terms gevonden:", nrow(as.data.frame(go_results)), "\n")
+cat("KEGG terms gevonden:", nrow(as.data.frame(kegg_results)), "\n")
