@@ -1,4 +1,4 @@
-# Van RNA-seq tot Pathview: Brede Opregulatie van de T-Cel Receptor Cascade bij Reumatoïde Artritis
+# Van RNA-seq tot Pathview: brede opregulatie van de T-Cel receptor cascade bij Reumatoïde Artritis
 ## Inleiding
 
 Reumatoïde artritis (RA) is een chronische auto-immuunziekte die wordt gekenmerkt door ontstekingen van de gewrichten. Deze ontstekingsreactie leidt tot schade aan kraakbeen en bot en kan zich uitbreiden naar omliggende weefsels. RA ontstaat door een interactie tussen genetische factoren en omgevingsfactoren, zoals roken (Gabriel, 2001). De exacte oorzaak is nog niet volledig bekend, maar onderzoek toont aan dat zowel genetische aanleg als ontregeling van het immuunsysteem een belangrijke rol spelen.
