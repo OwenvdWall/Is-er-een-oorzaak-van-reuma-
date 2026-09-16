@@ -52,9 +52,7 @@ in totaal werden er 29.407 genen geanalyseerd. de PCA analyse laat een heldere s
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a82d384c-c4dd-4fc5-8db4-aeec02d1c033" width="100%" style="image-rendering: -webkit-optimize-contrast;" alt="PCA en Volcano Plot Resultaten">
   <br>
-  <p align="center">
-  <img src="https://github.com" width="100%" style="image-rendering: -webkit-optimize-contrast;" alt="PCA en Volcano Plot Resultaten">
-  <br>
+ 
   <em>Figuur 2. Resultaten van de genexpressie-analyse. (A) De PCA-plot laat een duidelijke scheiding zien tussen de gezonde controles (normal) en de reuma-samples (Rheuma). De eerste as (PC1) verklaart hierbij 74% van de verschillen. (B) De Volcano plot laat zien welke genen significant verschillen, uitgezet tegen de log2 fold change. De belangrijkste genen voor reuma zijn apart gelabeld met lijntjes, zodat de namen goed leesbaar zijn.</em>
 </p>
 
