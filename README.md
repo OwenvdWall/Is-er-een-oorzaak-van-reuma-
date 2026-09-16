@@ -11,12 +11,9 @@ Om dieper inzicht te verkrijgen in de onderliggende mechanismen van reumatoïde 
 
 ## Methode
 
-
-
-##### Tabel 1: Overzicht van de klinische kenmerken van de gebruikte RNA-seq dataset (Platzer et al., 2019).
-
 Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq-dataset van Platzer et al. (2019), afkomstig uit de NCBI Sequence Read Archive (SRA). De dataset bestaat uit synoviumbiopten van vier patiënten met reumatoïde artritis (RA) en vier gezonde controles. De klinische kenmerken van de gebruikte samples zijn weergegeven in Tabel 1. De toegepaste bio-informatische workflow is schematisch weergegeven in Figuur 1.
 
+##### Tabel 1: Overzicht van de klinische kenmerken van de gebruikte RNA-seq dataset (Platzer et al., 2019).
 | Groep | Aantal samples (N) | Diagnose-status | ACPA-status | Bronvermelding / ID |
 | :--- | :--- | :--- | :--- | :--- |
 | **Gezond** | 4 | Geen gewrichtsklachten | Negatief (-) | NCBI SRA (SRR-nummers) |
