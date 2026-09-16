@@ -92,3 +92,7 @@ De transcriptomicsanalyse bevestigt ingrijpende herprogrammering in het synovial
  Dit verslag is door de auteur zelf geschreven. AI is gebruikt om de figuren biologisch te interpreteren, waarna de tekst zelfstandig is geformuleerd en taalkundige controle heeft plaatsgevonden.
 
 ## Bronnen
+
+Platzer, A., Nussbaumer, T., Karonitsch, T., Smolen, J. S., & Aletaha, D. (2019). Analysis of gene expression in rheumatoid arthritis and related conditions offers insights into sex-bias, gene biotypes and co-expression patterns. PLoS ONE, 14(7), e0219698. https://doi.org/10.1371/journal.pone.0219698
+Radu, A., & Bungau, S. G. (2021). Management of Rheumatoid Arthritis: An Overview. Cells, 10(11), 2857. https://doi.org/10.3390/cells10112857
+
