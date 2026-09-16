@@ -91,3 +91,4 @@ De transcriptomicsanalyse bevestigt ingrijpende herprogrammering in het synovial
  Dit verslag is door de auteur zelf geschreven. AI is gebruikt om de figuren biologisch te interpreteren, waarna de tekst zelfstandig is geformuleerd en taalkundige controle heeft plaatsgevonden.
  Dit verslag is door de auteur zelf geschreven. AI is gebruikt om de figuren biologisch te interpreteren, waarna de tekst zelfstandig is geformuleerd en taalkundige controle heeft plaatsgevonden.
 
+## Bronnen
