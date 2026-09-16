@@ -31,6 +31,7 @@ Voor dit onderzoek is gebruikgemaakt van een gepubliceerde RNA-seq-dataset van P
   <br>
   <em>Figuur 1. RNA-seq-analyse stroomschema. Workflow toegepast voor de verwerking van de rauwe RNA-seq-data tot aan de pathway-visualisatie.</em>
 </p>
+
 De RNA-seq-data werden geanalyseerd in R (versie 4.5.2). Reads werden uitgelijnd op het humane referentiegenoom met Rsubread (versie 2.24.0; Liao et al., 2019), waarna de BAM-bestanden werden verwerkt met Rsamtools (versie 2.26.0; Morgan et al., 2024). Met featureCounts (Liao et al., 2014) werd een count matrix gegenereerd. Differentieel geëxpresseerde genen werden geïdentificeerd met DESeq2 (versie 1.50.2; Love et al., 2014). Visualisaties werden gemaakt met ggplot2 (versie 4.0.3; Wickham, 2016) en EnhancedVolcano (versie 1.28.2; Blighe et al., 2024).
 
 Voor de GO- en KEGG-enrichmentanalyse werden genen geselecteerd op basis van een adjusted p-value < 0,05 en een absolute log2 fold change > 1. Hierbij werd de Benjamini-Hochberg-correctie toegepast om te corrigeren voor multiple testing. De geselecteerde genen werden geannoteerd met org.Hs.eg.db (versie 3.22.0; Carlson, 2024) en geanalyseerd met clusterProfiler (versie 4.18.4; Wu et al., 2021). De meest relevante pathway werd vervolgens gevisualiseerd met pathview (versie 1.50.0; Luo & Brouwer, 2013).
@@ -42,7 +43,7 @@ Voor de GO- en KEGG-enrichmentanalyse werden genen geselecteerd op basis van een
 
 ### PCA plot & Volcano plot
 
-in totaal werden er 29.407 genen geanalyseerd. de PCA analyse laat een heldere scheiding zien tussen de gezonde groep. de eerste twee hoofd de eerste twee hoofdcomponenten verklaren namelijk 74% en 11% van alle variatie. Zie (Figuur 2A) uit verder onderzoek bleek dat 4572 genen een significant verschil in expressie hadden (padj <= 0.05 en |log2 fold change| >= 1). De Volcano plot in figuur 2B brengt deze genen in beeld. hierop is te zien dat genen opgereguleerd zijn of juis neergereguleerd zijn.
+Om de algehele datastructuur te verkennen en individuele verschillen in genexpressie te identificeren, zijn er visualisaties gemaakt. De PCA-plot (Figuur 2A) toont een scherpe scheiding tussen controles en reuma-samples. Omdat de eerste twee hoofdcomponenten samen 85% van de variatie verklaren (PC1: 74%, PC2: 11%), is direct zichtbaar dat de aanwezigheid van de ziekte de oorzaak is van de biologische verschillen. De Volcano plot (Figuur 2B) brengt dit op gen niveau in kaart en toont de actievere (rechts) en minder actieve genen (links). 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a82d384c-c4dd-4fc5-8db4-aeec02d1c033" width="100%" style="image-rendering: -webkit-optimize-contrast;" alt="PCA en Volcano Plot Resultaten">
@@ -55,35 +56,40 @@ in totaal werden er 29.407 genen geanalyseerd. de PCA analyse laat een heldere s
 
 
 
-### GO ANALYSE 
+### GO en KEGG Analyse
+
+De Gene Ontology (GO) enrichment-analyse (Figuur 3) toont aan dat de top 10 biologische processen gedomineerd wordt door lymfocyten- en leukocytenactivatie, wat de immuuninfiltratie in het synoviale weefsel weerspiegelt. De KEGG-pathwayanalyse laat een significante verrijking zien van signaalroutes zoals cytokine-receptorinteracties (Figuur 4). De     T- cell receptor signaling pathway (hsa04660) is specifiek geselecteerd vanwege de sleutelrol van T-cellen bij het verloop van RA.
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/1f826903-223a-4b6d-bbe2-d7ae246f3045" width="550" style="image-rendering: -webkit-optimize-contrast;" alt="Gene Ontology Enrichment Analyse">
   <br>
   <em>Figuur 3. Gene Ontology Enrichment. Dotplot van de top 10 significante biologische processen (GO), gerangschikt op GeneRatio.</em>
 </p>
 
-
-
-### KEGG ANALYSE
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c92b6b0a-9073-4357-bbaf-6631bf6cc375" width="550" style="image-rendering: -webkit-optimize-contrast;" alt="KEGG Pathway Enrichment Analyse">
   <br>
   <em>Figuur 4. KEGG Pathway Enrichment. Dotplot van de meest verrijkte moleculaire signaalroutes binnen de dataset.</em>
 </p>
 
-
-
-
 ### PATHVIEW 
+
+De Pathview-visualisatie (Figuur 5) onthult een breedschalige opregulatie (rode boxen) binnen deze cascade, zoals de MAP-kinasecascade. Dit sluit aan bij de literatuur (Radu & Bungau, 2021), waarin staat dat aanhoudende immuun signalering de pro-inflammatoire status in stand houdt.
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/10ec3509-f01f-4929-b23d-6d7bc684da68" width="650" style="image-rendering: -webkit-optimize-contrast;" alt="Pathview T Cell Receptor Signaling Pathway">
   <br>
   <em>Figuur 5. Pathview-visualisatie van de 'T cell receptor signaling pathway' (hsa04660). Rode boxen induceren geüpreguleerde genen in de RA-monsters; groene boxen geven gedownreguleerde genen aan.</em>
 </p>
 
-
-
+De Pathview-visualisatie (Figuur 5) onthult een breedschalige opregulatie (rode boxen) van vrijwel alle kernelementen binnen deze T-celcascade, waaronder de MAP-kinasecascade en NF-κB-intermediairen. Dit wijst op een constante signalering die de ontsteking in stand houdt.
 
 
 ## Conclusie 
+
+De transcriptomicsanalyse bevestigt ingrijpende herprogrammering in het synoviale weefsel bij RA. De PCA-scheiding, immuun-gerelateerde GO/KEGG-verrijking en opregulatie van de T-celreceptorcascade bewijzen in lijn met Radu & Bungau (2021) dat autoreactieve T-cellen de drijvende kracht vormen achter de gewrichtsontsteking. Dit biedt waardevolle mechanistische aanknopingspunten voor gerichte immunotherapieën bij RA-patiënten.
+
+## AI-verklaring
+
+ Dit verslag is door de auteur zelf geschreven. AI is gebruikt om de figuren biologisch te interpreteren, waarna de tekst zelfstandig is geformuleerd en taalkundige controle heeft plaatsgevonden.
 
