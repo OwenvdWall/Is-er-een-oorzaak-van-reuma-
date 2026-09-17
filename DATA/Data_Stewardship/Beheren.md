@@ -1,36 +1,32 @@
-Tijdens dit transcriptomics-project is GitHub gebruikt als
-platform voor het beheren van de onderzoeksgegevens, de
-R-scripts en de bijbehorende documentatie. Een gestructureerd
-databeheer zorgt ervoor dat gegevens overzichtelijk blijven,
-analyses reproduceerbaar zijn en keuzes traceerbaar blijven.
+Efficiënt en gestructureerd beheren van onderzoeksgegevens
 
-Binnen de repository is een vaste mappenstructuur gebruikt om
-alle onderdelen overzichtelijk te organiseren. De hoofdmap
-DATA bevat de submappen RUWE DATA voor de oorspronkelijke dataset
-van Platzer et al. (2019) en GEFILTERDE DATA voor de bewerkte
-datasets uit R, zodat bronbestanden strikt gescheiden blijven.
-Het bestand R-SCRIPT staat direct in de rootmap en bevat de
-volledige workflow voor read mapping met Rsubread, genkwantificatie
-via featureCounts, differentiële expressie met DESeq2 en de
-pathway-analyses. Alle gegenereerde visualisaties zijn opgeslagen
-in de map RESULTATEN en hebben herkenbare namen gekregen, zoals
-GO_Enrichment.png en hsa04660.pathview.png.
+Goed databeheer is heel belangrijk bij onderzoek. Het zorgt
+ervoor dat je gegevens netjes geordend blijven, dat anderen je
+analyse kunnen herhalen en dat je gemaakte keuzes kunt controleren.
+Zonder goed beheer raak je snel het overzicht kwijt.
 
-In het README.md-bestand is de achtergrond van het onderzoek naar
-reumatoïde artritis beschreven, samen met de analysemethode,
-de resultaten en de uiteindelijke conclusie. Hierin staan ook
-de exacte softwareversies zoals R 4.5.2 en de statistische
-criteria van een adjusted p-value < 0,05 en een absolute
-log2 fold change > 1 vastgelegd. Dit zorgt ervoor dat een andere
-onderzoeker de resultaten in de toekomst exact kan reproduceren.
+Een duidelijke mappenstructuur helpt om alles logisch in te delen.
+Door data, scripts en resultaten in aparte mappen te zetten,
+raken bestanden niet door elkaar. Voor de namen van bestanden kun
+je het beste korte en logische namen gebruiken, bijvoorbeeld met
+een datum of versienummer erbij. Zo kan iedereen snel zien wat er
+in het bestand staat en hoef je niet lang te zoeken.
 
-Het versiebeheer is ingericht via commits, waarmee alle
-wijzigingen in de code en documentatie nauwkeurig zijn bijgehouden.
-Dit maakt het mogelijk om bij eventuele fouten in het script
-snel terug te grijpen naar eerdere, werkende versies. Wat betreft
-de privacy bevat de repository uitsluitend de openbare, volledig
-geanonymiseerde data van de acht specifieke sample ID's van
-SRR4785819 tot en met SRR4785988, waardoor medische patiëntgegevens
-optimaal beschermd blijven. Door deze zorgvuldige inrichting
-blijft de volledige RNA-seq workflow transparant, veilig en
-direct bruikbaar voor wie het onderzoek wil bekijken.
+Versiebeheer betekent dat je alle veranderingen in je code en
+documentatie bijhoudt in een soort tijdlijn. Dit doe je omdat je
+zo altijd kunt zien wat je hebt aangepast, en je kunt bij fouten
+gemakkelijk terug naar een oude, werkende versie. Goede documentatie
+in scripts maak je door duidelijke uitleg in de code te zetten en
+een centrale handleiding te schrijven waarin je stappen staan.
+
+Om scripts te delen kun je platforms zoals GitHub gebruiken, zodat
+anderen je code kunnen inzien. Voor het veilig opslaan van data
+gebruik je beveiligde servers van de school of universiteit. Als
+je werkt met gevoelige of persoonlijke data van patiënten, moet
+je hier heel voorzichtig mee omgaan door de gegevens vooraf goed
+te anonimiseren, zodat namen en personen niet te achterhalen zijn.
+
+Het publiceren van datasets als open data is belangrijk voor de
+wetenschap. Hierdoor kunnen andere onderzoekers jouw resultaten
+controleren, hoeft hetzelfde werk niet dubbel te worden gedaan en
+kunnen we weer verder bouwen op elkaars kennis.
