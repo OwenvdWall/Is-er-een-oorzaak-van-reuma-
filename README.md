@@ -97,3 +97,34 @@ Platzer, A., Nussbaumer, T., Karonitsch, T., Smolen, J. S., & Aletaha, D. (2019)
 
 Radu, A., & Bungau, S. G. (2021). Management of Rheumatoid Arthritis: An Overview. Cells, 10(11), 2857. https://doi.org/10.3390/cells10112857
 
+## Packages
+
+ Rsubread & featureCounts:
+  Liao, Y., Smyth, G. K., & Shi, W. (2019). The R package Rsubread is 
+  easier, faster, cheaper and better for alignment and quantification 
+  of RNA sequencing reads. Nucleic Acids Research, 47(8), e47.
+
+DESeq2:
+  Love, M. I., Huber, W., & Anders, S. (2014). Moderated estimation of 
+  fold change and dispersion for RNA-seq data with DESeq2. 
+  Genome Biology, 15(12), 550.
+
+clusterProfiler:
+  Wu, T., Hu, E., Xu, S., Chen, M., Guo, P., Dai, Z., ... & Yu, G. 
+  (2021). clusterProfiler 4.0: A universal enrichment tool for 
+  interpreting omics data. The Innovation, 2(3), 100141.
+
+EnhancedVolcano:
+  Blighe, K., Rana, S., & Lewis, M. (2020). EnhancedVolcano: 
+  Publication-ready volcano plots with enhanced colouring and labeling. 
+  R package version 1.7.14. https://github.com/kevinblighe/EnhancedVolcano
+
+Pathview:
+  Luo, W., & Brouwer, C. (2013). Pathview: an R/Bioconductor package 
+  for pathway-based data integration and visualization. 
+  Bioinformatics, 29(14), 1830-1831.
+
+ggplot2:
+  Wickham, H. (2016). ggplot2: Elegant Graphics for Data Analysis. 
+  Springer-Verlag New York.
+
