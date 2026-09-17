@@ -1,98 +1,3 @@
-#================================
-#Working derectory
-#================================
-setwd("C:/Users/owenv/OneDrive - NHL Stenden/Project REUMA leerjaar 2 periode 4")
-
-#================================
-#Pakages 
-#================================
-install.packages('BiocManager')
-BiocManager::install('Rsubread')
-library(Rsubread)
-#===========================================================
-#het referentie genoom van de mens indexeren
-#Met de volgende code kun je het referentiegenoom indexeren.
-#===========================================================
-buildindex(
-  basename = 'ref_homosapian',
-  reference = 'GCF_000001405.40_GRCh38.p14_genomic.fna',
-  memory = 4000,
-  indexSplit = TRUE)
-
-#================================
-#alignen van de samples
-#================================
-align.819_31_normal<-align(index = "ref_homosapian", readfile1 = "SRR4785819_1_subset40k.fastq", readfile2 = "SRR4785819_2_subset40k.fastq", output_file = "819_31_normal.BAM")
-align.820_15_normal<-align(index = "ref_homosapian", readfile1 = "SRR4785820_1_subset40k.fastq", readfile2 = "SRR4785820_2_subset40k.fastq", output_file = "820_15_normal.BAM")
-align.828_31_normal<-align(index = "ref_homosapian", readfile1 = "SRR4785828_1_subset40k.fastq", readfile2 = "SRR4785828_2_subset40k.fastq", output_file = "828_31_normal.BAM")
-align.831_42_normal<-align(index = "ref_homosapian", readfile1 = "SRR4785831_1_subset40k.fastq", readfile2 = "SRR4785831_2_subset40k.fastq", output_file = "831_42_normal.BAM")
-align.879_54_Rheuma<-align(index = "ref_homosapian", readfile1 = "SRR4785979_1_subset40k.fastq", readfile2 = "SRR4785979_2_subset40k.fastq", output_file = "879_54_Rheuma.BAM")
-align.980_66_Rheama<-align(index = "ref_homosapian", readfile1 = "SRR4785980_1_subset40k.fastq", readfile2 = "SRR4785980_2_subset40k.fastq", output_file = "980_66_Rheama.BAM")
-align.986_60_Rheuma<-align(index = "ref_homosapian", readfile1 = "SRR4785986_1_subset40k.fastq", readfile2 = "SRR4785986_2_subset40k.fastq", output_file = "986_60_Rheuma.BAM")
-align.988_59_Rheuma<-align(index = "ref_homosapian", readfile1 = "SRR4785988_1_subset40k.fastq", readfile2 = "SRR4785988_2_subset40k.fastq", output_file = "988_59_Rheuma.BAM")
-
-#===================================================================
-# Laad Rsamtools voor sorteren en indexeren (dowloaden indien nodig)
-#===================================================================
-BiocManager::install('Rsamtools')
-library(Rsamtools)
-
-#================================
-# Bestandsnamen van de monsters
-#================================
-samples <- c('819_31_normal', '820_15_normal', '828_31_normal', '831_42_normal', '879_54_Rheuma', '980_66_Rheama', '986_60_Rheuma', '988_59_Rheuma' )
-
-#======================================================
-# Voor elk monster: sorteer en indexeer de BAM-file
-# Sorteer BAM-bestanden
-#======================================================
-
-lapply(samples, function(s) {sortBam(file = paste0(s, '.BAM'), destination = paste0(s, '.sorted'))
-})
-# Indexeer de gesorteerde BAM-file
-lapply(samples, function(s) {indexBam(file = paste0(s, '.sorted.BAM'))
-})
-
-library(Rsubread)
-#============================================
-#het maken van een count matrix voor 1 sample
-#============================================
-count_matrix <- featureCounts(
-  files = "819_31_normal.BAM",
-  annot.ext = "genomic.mens.gtf",
-  isPairedEnd = TRUE,
-  isGTFAnnotationFile = TRUE, 
-  GTF.featureType = "gene",
-  GTF.attrType = "gene_id",
-  useMetaFeatures = TRUE
-)
-#================================
-#voor meerdere samples
-#================================
-
-allsamples <- c("819_31_normal.BAM", "820_15_normal.BAM", "828_31_normal.BAM", "831_42_normal.BAM", "879_54_Rheuma.BAM", "980_66_Rheama.BAM", "986_60_Rheuma.BAM","988_59_Rheuma.BAM")
-count_matrix <- featureCounts(
-  files = allsamples,
-  annot.ext = "genomic.mens.gtf",
-  isPairedEnd = TRUE,
-  isGTFAnnotationFile = TRUE,
-  GTF.featureType = "gene", 
-  GTF.attrType = "gene_id",
-  useMetaFeatures = TRUE
-)
-
-allsamples <- c("819_31_normal.BAM", "820_15_normal.BAM", "828_31_normal.BAM", "831_42_normal.BAM", "879_54_Rheuma.BAM", "980_66_Rheama.BAM", "986_60_Rheuma.BAM", "988_59_Rheuma.BAM")
-#================================
-#count matrix opslaan onder counts
-#================================
-counts <- count_matrix$counts
-head(counts)
-
-#================================
-#koppen veranderen van de matrix
-#================================
-colnames(counts) <- c("819_31_normal", "820_15_normal", "828_31_normal", "831_42_normal", "879_54_Rheuma", "980_66_Rheama", "986_60_Rheuma", "988_59_Rheuma")
-head(counts)
 
 #========================
 # WORKDIRECTORY
@@ -100,7 +5,7 @@ head(counts)
 setwd("C:/Users/owenv/OneDrive - NHL Stenden/Project REUMA leerjaar 2 periode 4")
 
 #========================
-# PACKAGES (Slimme installatie)
+# PACKAGES 
 #========================
 required_packages <- c("DESeq2", "EnhancedVolcano", "clusterProfiler", "org.Hs.eg.db", "enrichplot", "pathview", "dplyr", "ggplot2")
 new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
@@ -310,8 +215,3 @@ gene_vector <- gene_vector[!is.na(names(gene_vector))]
 pathview(gene.data = gene_vector, pathway.id = "04670", species = "hsa") # Leukocyte transendothelial migration
 pathview(gene.data = gene_vector, pathway.id = "04660", species = "hsa") # T cell receptor signaling pathway
 
-#========================
-# OUTPUT CHECK
-#========================
-cat("GO terms gevonden:", nrow(as.data.frame(go_results)), "\n")
-cat("KEGG terms gevonden:", nrow(as.data.frame(kegg_results)), "\n")
