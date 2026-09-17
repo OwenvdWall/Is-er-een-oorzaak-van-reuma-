@@ -43,7 +43,9 @@ Voor de GO- en KEGG-enrichmentanalyse werden genen geselecteerd op basis van een
 
 ### PCA plot & Volcano plot
 
-Om de algehele datastructuur te verkennen en individuele verschillen in genexpressie te identificeren, zijn er visualisaties gemaakt. De PCA-plot (Figuur 2A) toont een scherpe scheiding tussen controles en reuma-samples. Omdat de eerste twee hoofdcomponenten samen 85% van de variatie verklaren (PC1: 74%, PC2: 11%), is direct zichtbaar dat de aanwezigheid van de ziekte de oorzaak is van de biologische verschillen. De Volcano plot (Figuur 2B) brengt dit op gen niveau in kaart en toont de actievere (rechts) en minder actieve genen (links). 
+Om de algehele datastructuur te verkennen en individuele verschillen in genexpressie te identificeren, zijn er visualisaties gemaakt. De PCA-plot (Figuur 2A) toont een duidelijke scheiding tussen controles en reuma-samples. Omdat de eerste twee hoofdcomponenten samen 85% van de variatie verklaren (PC1: 74%, PC2: 11%), is zichtbaar dat de genexpressieprofielen van de RA-samples duidelijk verschillen van die van de controles. De Volcano plot (Figuur 2B) brengt dit op genniveau in kaart en toont de actievere (rechts) en minder actieve genen (links).
+
+
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a82d384c-c4dd-4fc5-8db4-aeec02d1c033" width="100%" style="image-rendering: -webkit-optimize-contrast;" alt="PCA en Volcano Plot Resultaten">
@@ -84,7 +86,7 @@ De Pathview-visualisatie (Figuur 5) onthult een breedschalige opregulatie (rode 
 
 ## Conclusie 
 
-De transcriptomicsanalyse bevestigt ingrijpende herprogrammering in het synoviale weefsel bij RA. De PCA-scheiding, immuun-gerelateerde GO/KEGG-verrijking en opregulatie van de T-celreceptorcascade bewijzen in lijn met Radu & Bungau (2021) dat autoreactieve T-cellen de drijvende kracht vormen achter de gewrichtsontsteking. Dit biedt waardevolle mechanistische aanknopingspunten voor gerichte immunotherapieën bij RA-patiënten.
+De transcriptomicsanalyse laat een duidelijke verandering in genexpressie in het synoviale weefsel bij RA zien. De PCA-scheiding, immuun-gerelateerde GO/KEGG-verrijking en opregulatie van de T-celreceptorcascade wijzen op een belangrijke rol van immuungerelateerde processen en T-celsignalering bij RA. Dit is in overeenstemming met de literatuur (Radu & Bungau, 2021), waarin de betrokkenheid van T-cellen en aanhoudende immuunsignalering bij de pro-inflammatoire toestand van RA wordt beschreven. De resultaten bieden daarmee mogelijke mechanistische aanknopingspunten voor verder onderzoek naar gerichte immunotherapieën bij RA-patiënten.
 
 ## AI-verklaring
 
